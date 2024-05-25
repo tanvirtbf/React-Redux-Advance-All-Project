@@ -10,6 +10,7 @@ const Home = () => {
     e.preventDefault();
     const url = e.target[0].value;
     dispatch(addImage(url))
+    e.target[0].value = ""
   }
   return (
     <>
