@@ -5,7 +5,7 @@ const imagesSlice = createSlice({
   initialState : [],
   reducers: {
     addImage(state,action){
-      state.push('just for code')
+      state.push(action.payload)
     },  
   }
 })
