@@ -1,16 +1,14 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  const [src,setSrc] = useState(null)
   const onSubmit = (e)=>{
     e.preventDefault();
     const url = e.target[0].value;
-    setSrc(url)
+    alert(url)
   }
   return (
     <>
-      <div className="flex justify-center items-center bg-amber-50 min-h-screen ">
+      <div className="flex justify-center items-center bg-amber-50 min-h-screen">
         <div className="flex flex-col gap-y-6 w-1/2">
           <h1 className="text-6xl font-bold text-violet-600">Pase Image URL</h1>
           <div>
@@ -24,11 +22,6 @@ const Home = () => {
               <div className="flex items-center gap-x-6">
                 <button className="bg-violet-600 text-white rounded px-6 py-2.5">Submit</button>
                 <Link to={"/images"} className="font-semibold text-gray-500">View</Link>
-              </div>
-              <div>
-                {
-                  src && <img onClick={()=> setSrc(null)} src={src} alt="img" />
-                }
               </div>
             </form>
           </div>
