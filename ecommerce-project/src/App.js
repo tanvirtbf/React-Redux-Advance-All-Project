@@ -1,13 +1,15 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import Home from "./Cmp/Home"
+import Images from "./Cmp/Images"
 
 const router = createBrowserRouter([
   {
     path : '/',
-    element: <h1>Home Page</h1>
+    element: <Home />
   },
   {
     path: '/images',
-    element: <h1>Images</h1>
+    element: <Images />
   },
 ])
 
