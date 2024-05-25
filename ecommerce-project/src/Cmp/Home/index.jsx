@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addImage } from "../../redux/slice/images.slice";
+import { addImage, removeImage } from "../../redux/slice/images.slice";
 
 const Home = () => {
   const dispatch = useDispatch()
@@ -31,7 +31,7 @@ const Home = () => {
               </div>
               <div className="grid grid-cols-3 p-4 gap-6">
                 {
-                  imagesSlice.map((item,i) => <img src={item} key={i} alt="images" />)
+                  imagesSlice.map((item,i) => <img onClick={()=> dispatch(removeImage(i))} src={item} key={i} alt="images" />)
                 }
               </div>
             </form>
