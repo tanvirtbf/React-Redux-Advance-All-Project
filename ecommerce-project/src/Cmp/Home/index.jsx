@@ -1,10 +1,12 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Home = () => {
+  const [src,setSrc] = useState(null)
   const onSubmit = (e)=>{
     e.preventDefault();
     const url = e.target[0].value;
-    alert(url)
+    setSrc(url)
   }
   return (
     <>
@@ -22,6 +24,11 @@ const Home = () => {
               <div className="flex items-center gap-x-6">
                 <button className="bg-violet-600 text-white rounded px-6 py-2.5">Submit</button>
                 <Link to={"/images"} className="font-semibold text-gray-500">View</Link>
+              </div>
+              <div>
+                {
+                  src && <img onClick={()=> setSrc(null)} src={src} alt="img" />
+                }
               </div>
             </form>
           </div>
