@@ -1,17 +1,17 @@
-import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { addImage } from "../../redux/slice/images.slice";
 
 const Home = () => {
-  const dispatch = useDispatch();
-  const res = useSelector((state) => state);
-  const { imagesSlice } = res;
-  const onSubmit = (e) => {
+  const dispatch = useDispatch()
+  const res = useSelector(state => state)
+  const {imagesSlice} = res
+  const onSubmit = (e)=>{
     e.preventDefault();
     const url = e.target[0].value;
-    dispatch(addImage(url));
-    e.target[0].value = "";
-  };
+    dispatch(addImage(url))
+    e.target[0].value = ""
+  }
   return (
     <>
       <div className="flex justify-center items-center bg-amber-50 min-h-screen">
@@ -26,17 +26,13 @@ const Home = () => {
                 placeholder="http://localhost:3000/"
               />
               <div className="flex items-center gap-x-6">
-                <button className="bg-violet-600 text-white rounded px-6 py-2.5">
-                  Submit
-                </button>
-                <Link to={"/images"} className="font-semibold text-gray-500">
-                  View
-                </Link>
+                <button className="bg-violet-600 text-white rounded px-6 py-2.5">Submit</button>
+                <Link to={"/images"} className="font-semibold text-gray-500">View</Link>
               </div>
               <div className="grid grid-cols-3 p-4 gap-6">
-                {imagesSlice.map((item, i) => (
-                  <img src={item} key={i} alt="images" />
-                ))}
+                {
+                  imagesSlice.map((item,i) => <img src={item} key={i} alt="images" />)
+                }
               </div>
             </form>
           </div>
